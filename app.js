@@ -40,7 +40,7 @@ passport.passportConfig();
 
 //Configure Mongoose
 mongoose.promise = global.Promise; //Configure mongoose's promise to global promise
-mongoose.connect(process.env.MONGO_DB_ADRESS);
+mongoose.connect(process.env.MONGODB_URI);
 mongoose.set('debug', true);
 
 
