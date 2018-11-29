@@ -3,12 +3,11 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const passport = require('./middleware/passport');
-const config = require('./config');
 
-//Initiate express server
+// Initiate express server
 const app = express();
 
-//Configure expresss server
+// Configure expresss server
 app.use(cors());
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -41,8 +40,8 @@ passport.passportConfig();
 
 //Configure Mongoose
 mongoose.promise = global.Promise; //Configure mongoose's promise to global promise
-mongoose.connect(config.mongoDbAddress);
+mongoose.connect(process.env.MONGO_DB_ADRESS);
 mongoose.set('debug', true);
 
 
-app.listen(config.port, () => console.log('Server running on port ' + config.port));
+app.listen(process.env.PORT, () => console.log('Server running on port ' + process.env.PORT));

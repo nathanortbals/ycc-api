@@ -1,4 +1,3 @@
-const config = require('../config');
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const randomstring = require('randomstring');
@@ -60,7 +59,7 @@ router.post('/login', validation.postLogin, asyncWrapper(async function(req, res
 
   const isValidPassword = await user.isValidPassword(req.body.password);
   if(isValidPassword) {
-    const token = jwt.sign(user.toJSON(), config.secret);
+    const token = jwt.sign(user.toJSON(), process.env.SECRET);
     res.json({token: 'JWT ' + token})
   } else {
     res.status(400).json({error: "Password incorrect"});

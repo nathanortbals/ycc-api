@@ -1,11 +1,10 @@
 const nodemailer = require('nodemailer');
-const config = require('../config');
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'nathan.ortbals@gmail.com',
-    pass: 'Programming1!'
+    user: process.env.EMAIL_ADDRESS,
+    pass: process.env.EMAIL_PASSWORD
   }
 });
 
@@ -14,7 +13,7 @@ const sendVerificationEmail = async function(email, key) {
     from: 'Youth Coalition of Columbia',
     to: email,
     subject: 'Please verify your account',
-    text: config.address + '/api/auth/validate?key=' + key,
+    text: process.env.ADDRESS + '/api/auth/validate?key=' + key,
   };
 
   return transporter.sendMail(mailOptions);

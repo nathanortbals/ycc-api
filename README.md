@@ -13,32 +13,15 @@ students in the INFOTC 4500 class at the University of Missouri in 2018.
 
 ## Configuration
 
-Create a file called `config.json`  in the root project folder with the following configuration:
+Run the program with the following environment variables:
 
-```
-{
-  "isProduction": [true or false],
-  "address": [public address of the server],
-  "mongoDbAddress": [mongoDb instance address],
-  "port": [port for the server to run on],
-  "passportSecret": [secret for token encryption],
-  "nodemailerConfig": [object for nodemailer configuration]
-}
-```
- * **isProduction** boolean value indicating whether the server is running in production or not. If the server is
- not being run in production, useful error messages will be given along with a `500 Internal Server Error` response
- 
- * **address** string value of the address the server is running on. This is needed for creating the link in the
- email verification
-  
- * **mongoDbAddress** string value of the address to the local mongodb instance. This will most likely be 
- `"mongodb://localhost/ycc-api"`
-  
- * **port** number value indicating what port the server should run on
-  
- * **passportSecret** string value to use for encrypting tokens, can be any value
-  
- * **nodemailerConfig** an object for configuring the email service. [Documentation here](https://nodemailer.com/smtp/)
+
+* **PORT** - number value indicating what port the server should run on
+* **EMAIL_ADDRESS** - Email address of the gmail account to use for verification
+* **EMAIL_PASSWORD** - Password to the gmail account
+* **ADDRESS** - string value of the address the server is running on. This is needed for creating the link in the email verification
+* **MONGO_DB_ADRESS** - string value of the address to the local mongodb instance. This will most likely be `"mongodb://localhost/ycc-api"`
+* **SECRET** - string value to use for encrypting tokens, can be any value
 
 
 **Example**
