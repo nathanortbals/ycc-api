@@ -20,28 +20,8 @@ Run the program with the following environment variables:
 * **EMAIL_ADDRESS** - Email address of the gmail account to use for verification
 * **EMAIL_PASSWORD** - Password to the gmail account
 * **ADDRESS** - string value of the address the server is running on. This is needed for creating the link in the email verification
-* **MONGO_DB_ADRESS** - string value of the address to the local mongodb instance. This will most likely be `"mongodb://localhost/ycc-api"`
+* **MONGODB_URI** - string value of the address to the local mongodb instance. This will most likely be `"mongodb://localhost/ycc-api"`
 * **SECRET** - string value to use for encrypting tokens, can be any value
-
-
-**Example**
-
-```json
-{
-  "isProduction": true,
-  "address": "http://localhost:8000",
-  "mongoDbAddress": "mongodb://localhost/ycc-api",
-  "port": 8000,
-  "passportSecret": "pizza",
-  "nodemailerConfig": {
-    "service": "gmail",
-    "auth": {
-      "user": "test@gmail.com",
-      "pass": "test1234"
-    }
-  }
-}
-```
 
 ## API Documentation
 
