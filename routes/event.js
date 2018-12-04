@@ -13,13 +13,9 @@ const validateToken = require('../middleware/passport').validateToken;
 router.get('/', validateToken, roles.verifyUser, validation.getEvent,
   asyncWrapper(async function(req, res) {
 
-    const event = await Event.findById(req.query._id);
+    const events = await Event.find(req.query);
 
-    if(!event) {
-      return res.status(404).json({error: "Event not found"});
-    }
-
-    res.json(event);
+    res.json(events);
 }));
 
 /* SAVE EVENT */
