@@ -2,7 +2,7 @@ const schemaWrapper = require('./schemaWrapper');
 const joi = require('joi');
 
 const getEventSchema = joi.object().keys({
-  _id: joi.string().alphanum().length(24).required()
+  _id: joi.string().alphanum().length(24).optional()
 });
 
 const postEventSchema = joi.object().keys({
